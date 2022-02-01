@@ -16,8 +16,8 @@ namespace AosSdk.Core.Player.Scripts
 
         [Space] [Header("Interaction")] [SerializeField]
         private Color defaultCrossHairColor;
-
-        [SerializeField] private Color hoveredCrossHairColor;
+        [SerializeField] private Sprite defaultCrossHairSprite;
+        [SerializeField] private Sprite hoveredCrossHairSprite;
         [SerializeField] private float crossHairSizeMultiplier = 1;
         [SerializeField] private float interactDistance = 0.5f;
 
@@ -79,10 +79,9 @@ namespace AosSdk.Core.Player.Scripts
             rayCaster.InteractDistance = interactDistance;
             rayCaster.CrossHair = crossHair;
             rayCaster.CameraTransform = playerCamera.transform;
-
             crossHair.CrossHairSizeMultiplier = crossHairSizeMultiplier;
-            crossHair.DefaultCrossHairColor = defaultCrossHairColor;
-            crossHair.HoveredCrossHairColor = hoveredCrossHairColor;
+            crossHair.CrossHairDefaultSprite = defaultCrossHairSprite;
+            crossHair.CrossHaiHoveredSprite = hoveredCrossHairSprite;
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

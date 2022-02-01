@@ -14,8 +14,9 @@ namespace AosSdk.Core.Player.Scripts
     {
         public Image crossHair;
 
-        public Color DefaultCrossHairColor { private get; set; }
-        public Color HoveredCrossHairColor { private get; set; }
+        public Sprite CrossHairDefaultSprite{ private get; set; }
+        public Sprite CrossHaiHoveredSprite{ private get; set; }
+
         public float CrossHairSizeMultiplier { private get; set; }
 
         private CrossHairState _currentState = CrossHairState.Unknown;
@@ -39,7 +40,7 @@ namespace AosSdk.Core.Player.Scripts
                 return;
             }
 
-            crossHair.color = state == CrossHairState.Default ? DefaultCrossHairColor : HoveredCrossHairColor;
+            crossHair.sprite = state == CrossHairState.Default ? CrossHairDefaultSprite : CrossHaiHoveredSprite;
             _currentState = state;
         }
     }
