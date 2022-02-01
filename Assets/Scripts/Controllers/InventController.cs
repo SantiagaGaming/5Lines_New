@@ -6,14 +6,18 @@ public class InventController : MonoBehaviour
 {
     [SerializeField] private InventoryViev _inventoryViev;
     [SerializeField] private SoundPlayer _soundPlayer;
+    private GameCanvasViev _currentCanvasViev;
     private bool _showedMap = false;
+   
     private void OnEnable()
     {
         _inventoryViev.MapButtonTapEvent += OnMapShow;
+        _inventoryViev.MeasureButtonTapEvent += OnMeasureButtonShow;
     }
     private void OnDisable()
     {
         _inventoryViev.MapButtonTapEvent -= OnMapShow;
+        _inventoryViev.MeasureButtonTapEvent -= OnMeasureButtonShow;
     }
     private void OnMapShow()
     {
@@ -30,5 +34,13 @@ public class InventController : MonoBehaviour
             _soundPlayer.PlayMapCloseSound();
         }
 
+    }
+    private void OnMeasureButtonShow()
+    {
+        _currentCanvasViev.ShowMeasureButtons();
+    }
+    public void SetCurrentCanvas(GameCanvasViev canvasViev)
+    {
+        _currentCanvasViev = canvasViev;
     }
 }
