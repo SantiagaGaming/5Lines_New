@@ -21,6 +21,6 @@ public class TeleportController : MonoBehaviour
     {
         Player.Instance.TeleportTo(newPlayerPosition);
         _cameraFlash.CameraFlashStart();
- 
+
     }
 }

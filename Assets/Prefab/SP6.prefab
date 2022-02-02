@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3335021431368520105}
   - component: {fileID: 1866667034763730444}
   - component: {fileID: 4468499431726443206}
-  - component: {fileID: 2667170013289990932}
   - component: {fileID: 2667170013289990933}
+  - component: {fileID: 2667170013289990932}
   m_Layer: 0
   m_Name: SP6
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2667170013289990932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2667170013289990931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484b592f79816b64daf8d638f00dba6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
 --- !u!65 &2667170013289990933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.73802185, y: 0.5363663, z: 0.4682479}
   m_Center: {x: -9.131632, y: 0.60288954, z: 1.797255}
+--- !u!114 &2667170013289990932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667170013289990931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484b592f79816b64daf8d638f00dba6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _canvas: {fileID: 0}
