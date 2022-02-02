@@ -6,7 +6,6 @@ public class SP6CanvasController: MonoBehaviour
 {
     [SerializeField] private SP6CanvasViev _sp6CanvasViev;
     [SerializeField] private ShupController _shupController;
-    private bool _firstmeasure = false;
     private void OnEnable()
     {
         _sp6CanvasViev.ButtonTap1Event += SetShupPosition;
@@ -28,6 +27,9 @@ public class SP6CanvasController: MonoBehaviour
         _sp6CanvasViev.ButtonTap17Event += SetShupPosition;
         _sp6CanvasViev.ButtonTap18Event += SetShupPosition;
         _sp6CanvasViev.ButtonTap19Event += SetShupPosition;
+        _sp6CanvasViev.ButtonTap20Event += SetShupPosition;
+        _sp6CanvasViev.ButtonTap21Event += SetShupPosition;
+        _sp6CanvasViev.ButtonTap22Event += SetShupPosition;
 
 
     }
@@ -52,18 +54,12 @@ public class SP6CanvasController: MonoBehaviour
         _sp6CanvasViev.ButtonTap17Event -= SetShupPosition;
         _sp6CanvasViev.ButtonTap18Event -= SetShupPosition;
         _sp6CanvasViev.ButtonTap19Event -= SetShupPosition;
+        _sp6CanvasViev.ButtonTap20Event -= SetShupPosition;
+        _sp6CanvasViev.ButtonTap21Event -= SetShupPosition;
+        _sp6CanvasViev.ButtonTap22Event -= SetShupPosition;
     }
     private void SetShupPosition(Transform position)
     {
-        if (!_firstmeasure)
-        {
-            _shupController.SetRedShupPosition(position);
-            _firstmeasure = true;
-        }
-        else
-        {
-            _shupController.SetBlackShupPosition(position);
-            _firstmeasure = false;
-        }
+            _shupController.SetShupPosition(position);
     }
 }

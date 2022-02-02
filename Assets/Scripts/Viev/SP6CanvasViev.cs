@@ -25,6 +25,9 @@ public class SP6CanvasViev : MonoBehaviour
     public UnityAction<Transform> ButtonTap17Event;
     public UnityAction<Transform> ButtonTap18Event;
     public UnityAction<Transform> ButtonTap19Event;
+    public UnityAction<Transform> ButtonTap20Event;
+    public UnityAction<Transform> ButtonTap21Event;
+    public UnityAction<Transform> ButtonTap22Event;
 
     [SerializeField] private Button _1Button;
     [SerializeField] private Button _2Button;
@@ -45,6 +48,9 @@ public class SP6CanvasViev : MonoBehaviour
     [SerializeField] private Button _17Button;
     [SerializeField] private Button _18Button;
     [SerializeField] private Button _19Button;
+    [SerializeField] private Button _20Button;
+    [SerializeField] private Button _21Button;
+    [SerializeField] private Button _22Button;
     private void Start()
     {
         _1Button.onClick.AddListener(() => { ButtonTap1Event?.Invoke(_1Button.GetComponent<Transform>()); });
@@ -66,6 +72,9 @@ public class SP6CanvasViev : MonoBehaviour
         _17Button.onClick.AddListener(() => { ButtonTap17Event?.Invoke(_17Button.GetComponent<Transform>()); });
         _18Button.onClick.AddListener(() => { ButtonTap18Event?.Invoke(_18Button.GetComponent<Transform>()); });
         _19Button.onClick.AddListener(() => { ButtonTap19Event?.Invoke(_19Button.GetComponent<Transform>()); });
+        _20Button.onClick.AddListener(() => { ButtonTap20Event?.Invoke(_20Button.GetComponent<Transform>()); });
+        _21Button.onClick.AddListener(() => { ButtonTap21Event?.Invoke(_21Button.GetComponent<Transform>()); });
+        _22Button.onClick.AddListener(() => { ButtonTap22Event?.Invoke(_22Button.GetComponent<Transform>()); });
 
     }
 

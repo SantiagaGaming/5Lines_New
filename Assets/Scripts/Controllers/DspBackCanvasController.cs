@@ -6,7 +6,6 @@ public class DspBackCanvasController : MonoBehaviour
 {
     [SerializeField] private DspBackCanvasViev _dspBackCanvasViev;
     [SerializeField] private ShupController _shupController;
-    private bool _firstmeasure = false;
     private void OnEnable()
     {
         _dspBackCanvasViev.Z_402ButtonTapEvent += SetShupPosition;
@@ -51,15 +50,8 @@ public class DspBackCanvasController : MonoBehaviour
     }
     private void SetShupPosition(Transform position)
     {
-        if(!_firstmeasure)
-        {
-            _shupController.SetRedShupPosition(position);
-            _firstmeasure = true;
-        }
-        else
-        {
-            _shupController.SetBlackShupPosition(position);
-            _firstmeasure = false;
-        }
+
+        _shupController.SetShupPosition(position);
+
     }
 }

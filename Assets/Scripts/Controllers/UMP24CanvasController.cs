@@ -6,7 +6,7 @@ public class UMP24CanvasController : MonoBehaviour
 {
     [SerializeField] private UMP24CanvasViev _ump24CanvasViev;
     [SerializeField] private ShupController _shupController;
-    private bool _firstmeasure = false;
+
     private void OnEnable()
     {
         _ump24CanvasViev.ButtonTap1Event += SetShupPosition;
@@ -18,7 +18,8 @@ public class UMP24CanvasController : MonoBehaviour
         _ump24CanvasViev.ButtonTap7Event += SetShupPosition;
         _ump24CanvasViev.ButtonTap8Event += SetShupPosition;
         _ump24CanvasViev.ButtonTap9Event += SetShupPosition;
-  
+        _ump24CanvasViev.ButtonTap10Event += SetShupPosition;
+
 
 
     }
@@ -33,19 +34,11 @@ public class UMP24CanvasController : MonoBehaviour
         _ump24CanvasViev.ButtonTap7Event -= SetShupPosition;
         _ump24CanvasViev.ButtonTap8Event -= SetShupPosition;
         _ump24CanvasViev.ButtonTap9Event -= SetShupPosition;
+        _ump24CanvasViev.ButtonTap10Event -= SetShupPosition;
 
     }
     private void SetShupPosition(Transform position)
     {
-        if (!_firstmeasure)
-        {
-            _shupController.SetRedShupPosition(position);
-            _firstmeasure = true;
-        }
-        else
-        {
-            _shupController.SetBlackShupPosition(position);
-            _firstmeasure = false;
-        }
+            _shupController.SetShupPosition(position);
     }
 }

@@ -7,13 +7,29 @@ public class ShupController : MonoBehaviour
 {
     [SerializeField] private GameObject _redShup;
     [SerializeField] private GameObject _blackShup;
+    private bool _firstMeasure = false;
  
-    public void SetRedShupPosition(Transform newPos)
+    public void SetShupPosition(Transform newPos)
     {
-        _redShup.transform.position = newPos.position;
-    }
-    public void SetBlackShupPosition(Transform newPos)
-    {
-        _blackShup.transform.position = newPos.position;
+        if (!_firstMeasure)
+        {
+            if (_redShup.transform.position != newPos.position && _blackShup.transform.position != newPos.position)
+            {
+                _redShup.transform.position = newPos.position;
+                _firstMeasure = true;
+            }
+      
+
+        }
+        else if (_firstMeasure)
+        {
+            if (_redShup.transform.position != newPos.position && _blackShup.transform.position != newPos.position)
+            {
+                _blackShup.transform.position = newPos.position;
+                _firstMeasure = false;
+            }
+
+        }
+
     }
 }
