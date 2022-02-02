@@ -10,6 +10,7 @@ public class ShupController : MonoBehaviour
 
     [SerializeField] private GameObject _redShup;
     [SerializeField] private GameObject _blackShup;
+    [SerializeField] private InventoryViev _inventViev;
 
     private bool _firstMeasure = false;
     private string _measureText;
@@ -36,6 +37,20 @@ public class ShupController : MonoBehaviour
                 SetMeasureTextEvent?.Invoke(_measureText);
             }
         }
-
+    }
+    private void OnEnable()
+    {
+        _inventViev.BackButtonTapEvent += OnResetShupPosition;
+    }
+    private void OnDisable()
+    {
+        _inventViev.BackButtonTapEvent -= OnResetShupPosition;
+    }
+    private void OnResetShupPosition()
+    {
+        _redShup.transform.position = Vector3.zero;
+        _blackShup.transform.position = Vector3.zero;
+        _measureText = "";
+        _firstMeasure = false;
     }
 }

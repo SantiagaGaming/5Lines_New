@@ -6,8 +6,8 @@ public class GameCanvasViev : MonoBehaviour
 {
     [SerializeField] private GameObject _measureButtons;
 
-    public void ShowMeasureButtons()
+    public void ShowMeasureButtons(bool value)
     {
-        _measureButtons.SetActive(true);
+        _measureButtons.SetActive(value);
     }
 }

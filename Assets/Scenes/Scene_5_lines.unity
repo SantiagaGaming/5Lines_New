@@ -14235,6 +14235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _redShup: {fileID: 582725584}
   _blackShup: {fileID: 1152645767}
+  _inventViev: {fileID: 636815693}
 --- !u!1 &1504723684
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class InventController : MonoBehaviour
     }
     private void OnMeasureButtonShow()
     {
-        _currentCanvasViev.ShowMeasureButtons();
+        _currentCanvasViev.ShowMeasureButtons(true);
     }
     public void SetCurrentCanvas(GameCanvasViev canvasViev)
     {
@@ -56,5 +56,6 @@ public class InventController : MonoBehaviour
     private void OnHideMeasureWindow()
     {
         _inventoryViev.ShowMeasureTextWindow(false);
+        _currentCanvasViev.ShowMeasureButtons(false);
     }
 }
