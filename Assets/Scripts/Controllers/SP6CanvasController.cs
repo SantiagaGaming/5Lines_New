@@ -30,8 +30,6 @@ public class SP6CanvasController: MonoBehaviour
         _sp6CanvasViev.ButtonTap20Event += SetShupPosition;
         _sp6CanvasViev.ButtonTap21Event += SetShupPosition;
         _sp6CanvasViev.ButtonTap22Event += SetShupPosition;
-
-
     }
     private void OnDisable()
     {
@@ -58,8 +56,8 @@ public class SP6CanvasController: MonoBehaviour
         _sp6CanvasViev.ButtonTap21Event -= SetShupPosition;
         _sp6CanvasViev.ButtonTap22Event -= SetShupPosition;
     }
-    private void SetShupPosition(Transform position)
+    private void SetShupPosition(Transform position, string text)
     {
-            _shupController.SetShupPosition(position);
+            _shupController.SetShupPosition(position, text);
     }
 }

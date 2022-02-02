@@ -19,9 +19,6 @@ public class UMP24CanvasController : MonoBehaviour
         _ump24CanvasViev.ButtonTap8Event += SetShupPosition;
         _ump24CanvasViev.ButtonTap9Event += SetShupPosition;
         _ump24CanvasViev.ButtonTap10Event += SetShupPosition;
-
-
-
     }
     private void OnDisable()
     {
@@ -35,10 +32,9 @@ public class UMP24CanvasController : MonoBehaviour
         _ump24CanvasViev.ButtonTap8Event -= SetShupPosition;
         _ump24CanvasViev.ButtonTap9Event -= SetShupPosition;
         _ump24CanvasViev.ButtonTap10Event -= SetShupPosition;
-
     }
-    private void SetShupPosition(Transform position)
+    private void SetShupPosition(Transform position, string text)
     {
-            _shupController.SetShupPosition(position);
+            _shupController.SetShupPosition(position, text);
     }
 }

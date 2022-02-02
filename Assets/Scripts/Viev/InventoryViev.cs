@@ -13,6 +13,8 @@ public class InventoryViev : MonoBehaviour
     [SerializeField] private Button _mapButton;
     [SerializeField] private GameObject _mapImage;
     [SerializeField] private Button _measureButton;
+    [SerializeField] private GameObject _measureTextImage;
+    [SerializeField] private Text _measureText;
 
     private void Start()
     {
@@ -23,6 +25,14 @@ public class InventoryViev : MonoBehaviour
     public void ShowMap(bool value)
     {
         _mapImage.SetActive(value);
+    }
+    public void ShowMeasureText(string text)
+    {
+        _measureText.text = text;
+    }
+    public void ShowMeasureTextWindow( bool value)
+    {
+        _measureTextImage.SetActive(value);
     }
 
 }

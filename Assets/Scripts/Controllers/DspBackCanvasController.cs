@@ -48,10 +48,10 @@ public class DspBackCanvasController : MonoBehaviour
         _dspBackCanvasViev.Z_511ButtonTapEvent -= SetShupPosition;
         _dspBackCanvasViev.Z_512ButtonTapEvent -= SetShupPosition;
     }
-    private void SetShupPosition(Transform position)
+    private void SetShupPosition(Transform position, string text)
     {
 
-        _shupController.SetShupPosition(position);
+        _shupController.SetShupPosition(position, text);
 
     }
 }
