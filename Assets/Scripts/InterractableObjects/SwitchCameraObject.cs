@@ -9,9 +9,11 @@ using UnityEngine.Events;
 public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHoverAble
 {
     public UnityAction<ICameraObject> SwitchCameraEvent;
+    public UnityAction<string> GetNameOfObjectEvent;
     [SerializeField] private GameObject _camera;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _canIterractSign;
+    [SerializeField] private string _nameOfObject;
     private GameCanvasViev _gameCanvasViev;
     private void Start()
     {
@@ -34,6 +36,7 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         _camera.SetActive(true);
         _canvas.SetActive(true);
         SetGameCanvasViev();
+        GetNameOfObjectEvent?.Invoke("");
         SwitchCameraEvent?.Invoke(this);
     }
     private void SetGameCanvasViev()
@@ -45,10 +48,12 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
     public void OnHoverIn()
     {
         _canIterractSign.SetActive(true);
+        GetNameOfObjectEvent?.Invoke(_nameOfObject);
     }
 
     public void OnHoverOut()
     {
         _canIterractSign.SetActive(false);
+        GetNameOfObjectEvent?.Invoke("");
     }
 }
