@@ -6,11 +6,12 @@ using UnityEngine.Events;
 
 
 
-public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject
+public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHoverAble
 {
     public UnityAction<ICameraObject> SwitchCameraEvent;
     [SerializeField] private GameObject _camera;
     [SerializeField] private GameObject _canvas;
+    [SerializeField] private GameObject _canIterractSign;
     private GameCanvasViev _gameCanvasViev;
     private void Start()
     {
@@ -26,6 +27,7 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject
     public void OnClicked()
     {
         SwitchCamera();
+        _canIterractSign.SetActive(false);
     }
     private void SwitchCamera()
     {
@@ -40,4 +42,13 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject
         tempInvent.SetCurrentCanvas(_gameCanvasViev);
     }
 
+    public void OnHoverIn()
+    {
+        _canIterractSign.SetActive(true);
+    }
+
+    public void OnHoverOut()
+    {
+        _canIterractSign.SetActive(false);
+    }
 }
