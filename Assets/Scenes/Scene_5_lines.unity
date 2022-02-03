@@ -829,6 +829,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85232117}
   m_CullTransparentMesh: 1
+--- !u!1 &91786579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 91786580}
+  - component: {fileID: 91786581}
+  m_Layer: 0
+  m_Name: UMP24CanvasViev
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &91786580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91786579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1397564661}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &91786581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91786579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1523b50eaf0aee747a509422ab1448fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 227890019}
+  - {fileID: 1053575832}
+  - {fileID: 464659659}
+  - {fileID: 317140607}
+  - {fileID: 1061040125}
+  - {fileID: 664463892}
+  - {fileID: 31279954}
+  - {fileID: 2037958841}
+  - {fileID: 764766736}
+  - {fileID: 497806005}
 --- !u!1 &98677421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7707,51 +7761,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &752791306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 752791307}
-  - component: {fileID: 752791308}
-  m_Layer: 0
-  m_Name: UMP24CanvasController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &752791307
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752791306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 868297410}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &752791308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752791306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124783fa9077c374d9aa1359cd66f0da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ump24CanvasViev: {fileID: 1361304632}
-  _shupController: {fileID: 1503808508}
 --- !u!114 &760657793 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 760657793, guid: 8d7f4f424970bc745abb0088ff43f943, type: 3}
@@ -8780,7 +8789,7 @@ Transform:
   - {fileID: 1503808507}
   - {fileID: 306286768}
   - {fileID: 204214926}
-  - {fileID: 752791307}
+  - {fileID: 1349967702}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11111,28 +11120,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8c7a379ca6fef4eb8d5d997719ad15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _1Button: {fileID: 3089306}
-  _2Button: {fileID: 680948179}
-  _3Button: {fileID: 2082334780}
-  _4Button: {fileID: 3664045}
-  _5Button: {fileID: 2111605937}
-  _6Button: {fileID: 1934979465}
-  _7Button: {fileID: 1441051309}
-  _8Button: {fileID: 305539301}
-  _9Button: {fileID: 421846366}
-  _10Button: {fileID: 2101561027}
-  _11Button: {fileID: 1871344508}
-  _12Button: {fileID: 952200378}
-  _13Button: {fileID: 1752834848}
-  _14Button: {fileID: 863769857}
-  _15Button: {fileID: 435533235}
-  _16Button: {fileID: 1218419952}
-  _17Button: {fileID: 2131144158}
-  _18Button: {fileID: 233523821}
-  _19Button: {fileID: 1823573223}
-  _20Button: {fileID: 538983632}
-  _21Button: {fileID: 1859952804}
-  _22Button: {fileID: 178022518}
+  _buttons:
+  - {fileID: 3089306}
+  - {fileID: 680948179}
+  - {fileID: 2082334780}
+  - {fileID: 3664045}
+  - {fileID: 2111605937}
+  - {fileID: 1934979465}
+  - {fileID: 1441051309}
+  - {fileID: 305539301}
+  - {fileID: 421846366}
+  - {fileID: 2101561027}
+  - {fileID: 1871344508}
+  - {fileID: 952200378}
+  - {fileID: 1752834848}
+  - {fileID: 863769857}
+  - {fileID: 435533235}
+  - {fileID: 1218419952}
+  - {fileID: 2131144158}
+  - {fileID: 233523821}
+  - {fileID: 1823573223}
+  - {fileID: 538983632}
+  - {fileID: 1859952804}
+  - {fileID: 178022518}
 --- !u!1 &1144835584
 GameObject:
   m_ObjectHideFlags: 0
@@ -12856,7 +12866,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327046327}
   m_CullTransparentMesh: 1
---- !u!1 &1361304630
+--- !u!1 &1349967701
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12864,51 +12874,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1361304631}
-  - component: {fileID: 1361304632}
+  - component: {fileID: 1349967702}
+  - component: {fileID: 1349967703}
   m_Layer: 0
-  m_Name: UMP24CanvasViev
+  m_Name: UMP24CanvasController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1361304631
+--- !u!4 &1349967702
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361304630}
+  m_GameObject: {fileID: 1349967701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1397564661}
-  m_RootOrder: 3
+  m_Father: {fileID: 868297410}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1361304632
+--- !u!114 &1349967703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361304630}
+  m_GameObject: {fileID: 1349967701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb597b4fba632a4880cff6607403374, type: 3}
+  m_Script: {fileID: 11500000, guid: 0687192b4fc69a84d8208463588c6e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _1Button: {fileID: 227890019}
-  _2Button: {fileID: 1053575832}
-  _3Button: {fileID: 464659659}
-  _4Button: {fileID: 317140607}
-  _5Button: {fileID: 1061040125}
-  _6Button: {fileID: 664463892}
-  _7Button: {fileID: 31279954}
-  _8Button: {fileID: 2037958841}
-  _9Button: {fileID: 764766736}
-  _10Button: {fileID: 497806005}
+  _ump24CanvasViev: {fileID: 91786581}
+  _shupController: {fileID: 1503808508}
 --- !u!1001 &1375243869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13037,7 +13039,7 @@ Transform:
   - {fileID: 636815697}
   - {fileID: 1984657446}
   - {fileID: 1140444587}
-  - {fileID: 1361304631}
+  - {fileID: 91786580}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18472,23 +18474,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd1f5a0a976791479c0107e5d0cdf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _z_402Button: {fileID: 1231945691}
-  _z_403Button: {fileID: 1001362791}
-  _z_404Button: {fileID: 1038801844}
-  _z_405Button: {fileID: 1807524138}
-  _z_406Button: {fileID: 85232119}
-  _z_501Button: {fileID: 1144878843}
-  _z_502Button: {fileID: 515449302}
-  _z_503Button: {fileID: 680453361}
-  _z_504Button: {fileID: 703306502}
-  _z_505Button: {fileID: 1965239092}
-  _z_506Button: {fileID: 825618891}
-  _z_507Button: {fileID: 1418474994}
-  _z_508Button: {fileID: 1465381176}
-  _z_509Button: {fileID: 393876405}
-  _z_510Button: {fileID: 1893907189}
-  _z_511Button: {fileID: 643449377}
-  _z_512Button: {fileID: 136155572}
+  _buttons:
+  - {fileID: 1231945691}
+  - {fileID: 1001362791}
+  - {fileID: 1038801844}
+  - {fileID: 1807524138}
+  - {fileID: 85232119}
+  - {fileID: 1144878843}
+  - {fileID: 515449302}
+  - {fileID: 680453361}
+  - {fileID: 703306502}
+  - {fileID: 1965239092}
+  - {fileID: 825618891}
+  - {fileID: 1418474994}
+  - {fileID: 1465381176}
+  - {fileID: 393876405}
+  - {fileID: 1893907189}
+  - {fileID: 643449377}
+  - {fileID: 136155572}
 --- !u!1 &1988399636
 GameObject:
   m_ObjectHideFlags: 0

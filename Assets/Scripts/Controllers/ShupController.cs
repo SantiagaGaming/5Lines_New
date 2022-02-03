@@ -22,6 +22,7 @@ public class ShupController : MonoBehaviour
             if (_redShup.transform.position != newPos.position && _blackShup.transform.position != newPos.position)
             {
                 _redShup.transform.position = newPos.position;
+                _blackShup.transform.position = Vector3.zero;
                 _firstMeasure = true;
                 _measureText = text;
                 SetMeasureTextEvent?.Invoke(_measureText);
