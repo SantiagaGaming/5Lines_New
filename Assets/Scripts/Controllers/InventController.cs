@@ -15,14 +15,17 @@ public class InventController : MonoBehaviour
         _inventoryViev.MapButtonTapEvent += OnMapShow;
         _inventoryViev.MeasureButtonTapEvent += OnMeasureButtonShow;
         _shupController.SetMeasureTextEvent += OnSetMeasureText;
-        _inventoryViev.BackButtonTapEvent += OnHideMeasureWindow;
+        _inventoryViev.BackButtonTapEvent += OnHideAllWindows;
+        _inventoryViev.RepairButtonTapEvent += OnRepaiButtonShow;
     }
     private void OnDisable()
     {
         _inventoryViev.MapButtonTapEvent -= OnMapShow;
         _inventoryViev.MeasureButtonTapEvent -= OnMeasureButtonShow;
         _shupController.SetMeasureTextEvent -= OnSetMeasureText;
-        _inventoryViev.BackButtonTapEvent -= OnHideMeasureWindow;
+        _inventoryViev.BackButtonTapEvent -= OnHideAllWindows;
+        _inventoryViev.RepairButtonTapEvent -= OnRepaiButtonShow;
+
     }
     private void OnMapShow()
     {
@@ -42,7 +45,11 @@ public class InventController : MonoBehaviour
     }
     private void OnMeasureButtonShow()
     {
-        _currentCanvasViev.ShowMeasureButtons(true);
+        _currentCanvasViev.ShowMeasureButtons();
+    }
+    private void OnRepaiButtonShow()
+    {
+        _currentCanvasViev.ShowRepairButtons();
     }
     public void SetCurrentCanvas(GameCanvasViev canvasViev)
     {
@@ -53,9 +60,9 @@ public class InventController : MonoBehaviour
         _inventoryViev.ShowMeasureTextWindow(true);
         _inventoryViev.ShowMeasureText(text);
     }
-    private void OnHideMeasureWindow()
+    private void OnHideAllWindows()
     {
         _inventoryViev.ShowMeasureTextWindow(false);
-        _currentCanvasViev.ShowMeasureButtons(false);
+        _currentCanvasViev.HideAllButtons();
     }
 }

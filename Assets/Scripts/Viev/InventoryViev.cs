@@ -9,11 +9,16 @@ public class InventoryViev : MonoBehaviour
     public UnityAction BackButtonTapEvent;
     public UnityAction MapButtonTapEvent;
     public UnityAction MeasureButtonTapEvent;
+    public UnityAction RepairButtonTapEvent;
+
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _mapButton;
-    [SerializeField] private GameObject _mapImage;
     [SerializeField] private Button _measureButton;
+    [SerializeField] private Button _repairButton;
+
+    [SerializeField] private GameObject _mapImage;
     [SerializeField] private GameObject _measureTextImage;
+
     [SerializeField] private Text _measureText;
 
     private void Start()
@@ -21,6 +26,7 @@ public class InventoryViev : MonoBehaviour
         _backButton.onClick.AddListener(() => { BackButtonTapEvent?.Invoke(); });
         _mapButton.onClick.AddListener(() => { MapButtonTapEvent?.Invoke(); });
         _measureButton.onClick.AddListener(() => { MeasureButtonTapEvent?.Invoke(); });
+        _repairButton.onClick.AddListener(() => { RepairButtonTapEvent?.Invoke(); });
     }
     public void ShowMap(bool value)
     {
