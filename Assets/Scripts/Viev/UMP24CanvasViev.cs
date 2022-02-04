@@ -9,6 +9,7 @@ public class UMP24CanvasViev : MonoBehaviour
     public UnityAction<Transform,string> ButtonTapEvent;
 
     [SerializeField] private Button[] _buttons;
+
     private void Start()
     {
         foreach (var Button in _buttons)

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ReleObjCanvas5Viev : MonoBehaviour
 {
     public UnityAction<int> RepairButtonTapEvent;
-
+    public UnityAction<int> WatchButtonTapEvent;
 
     [SerializeField] private Button _repairButton1;
     [SerializeField] private Button _repairButton2;
@@ -15,6 +15,13 @@ public class ReleObjCanvas5Viev : MonoBehaviour
     [SerializeField] private Button _repairButton4;
     [SerializeField] private Button _repairButton5;
     [SerializeField] private Button _repairButton6;
+
+    [SerializeField] private Button _watchButton1;
+    [SerializeField] private Button _watchButton2;
+    [SerializeField] private Button _watchButton3;
+    [SerializeField] private Button _watchButton4;
+    [SerializeField] private Button _watchButton5;
+    [SerializeField] private Button _watchButton6;
 
 
     private void Start()
@@ -27,11 +34,17 @@ public class ReleObjCanvas5Viev : MonoBehaviour
         _repairButton5.onClick.AddListener(() => { RepairAndHide(4); });
         _repairButton6.onClick.AddListener(() => { RepairAndHide(5); });
 
+        _watchButton1.onClick.AddListener(() => {WatchButtonTapEvent?.Invoke(0); });
+        _watchButton2.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(1); });
+        _watchButton3.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(2); });
+        _watchButton4.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(3); });
+        _watchButton5.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(4); });
+        _watchButton6.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(5); });
+
 
     }
     private void RepairAndHide(int number)
     {
-     
         RepairButtonTapEvent?.Invoke(number);
     }
 }

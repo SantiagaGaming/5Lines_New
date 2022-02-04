@@ -5,6 +5,7 @@ using UnityEngine;
 public class NmshBfk : MonoBehaviour
 {
     [SerializeField] private GameObject _nmshBfkButton;
+    [SerializeField] private bool _cindition;
     public void RepairNmsh()
     {
     
@@ -13,6 +14,7 @@ public class NmshBfk : MonoBehaviour
     private IEnumerator Move()
     { int x = 0;
         _nmshBfkButton.SetActive(false);
+        _cindition = true;
         while (x<=16)
         {
            transform.position += new Vector3(0.025f, 0, 0);
@@ -26,5 +28,9 @@ public class NmshBfk : MonoBehaviour
             x--;
         }
         _nmshBfkButton.SetActive(true);
+    }
+    public bool GetCondition()
+    {
+        return _cindition;
     }
 }

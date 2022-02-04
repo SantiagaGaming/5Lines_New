@@ -23,19 +23,19 @@ public class InventoryViev : MonoBehaviour
     [SerializeField] private Button _touchButton;
 
     [SerializeField] private GameObject _mapImage;
-    [SerializeField] private GameObject _measureTextImage;
+    [SerializeField] private GameObject _messageWindow;
 
-    [SerializeField] private Text _measureText;
+    [SerializeField] private Text _messageWindowText;
 
     private void Start()
     {
         _backButton.onClick.AddListener(() => { BackButtonTapEvent?.Invoke(); });
-        _mapButton.onClick.AddListener(() => { MapButtonTapEvent?.Invoke(); });
-        _measureButton.onClick.AddListener(() => { MeasureButtonTapEvent?.Invoke(); });
-        _repairButton.onClick.AddListener(() => { RepairButtonTapEvent?.Invoke(); });
-        _radioButton.onClick.AddListener(() => { RadioButtonTapEvent?.Invoke(); });
-        _watchButton.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(); });
-        _touchButton.onClick.AddListener(() => { TouchButtonTapEvent?.Invoke(); });
+        _mapButton.onClick.AddListener(() => { MapButtonTapEvent?.Invoke(); ShowMessageWindow(false); });
+        _measureButton.onClick.AddListener(() => { MeasureButtonTapEvent?.Invoke(); ShowMessageWindow(false); });
+        _repairButton.onClick.AddListener(() => { RepairButtonTapEvent?.Invoke(); ShowMessageWindow(false); });
+        _radioButton.onClick.AddListener(() => { RadioButtonTapEvent?.Invoke(); ShowMessageWindow(false); });
+        _watchButton.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke();ShowMessageWindow(false); });
+        _touchButton.onClick.AddListener(() => { TouchButtonTapEvent?.Invoke(); ShowMessageWindow(false); });
     }
     public void ShowMap(bool value)
     {
@@ -43,11 +43,11 @@ public class InventoryViev : MonoBehaviour
     }
     public void ShowMeasureText(string text)
     {
-        _measureText.text = text;
+        _messageWindowText.text = text;
     }
-    public void ShowMeasureTextWindow( bool value)
+    public void ShowMessageWindow( bool value)
     {
-        _measureTextImage.SetActive(value);
+        _messageWindow.SetActive(value);
     }
 
 }
