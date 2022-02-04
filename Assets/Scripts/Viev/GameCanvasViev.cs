@@ -6,6 +6,9 @@ public class GameCanvasViev : MonoBehaviour
 {
     [SerializeField] private GameObject _measureButtons;
     [SerializeField] private GameObject _repairButtons;
+    [SerializeField] private GameObject _watchButtonns;
+    [SerializeField] private GameObject _touchButtons;
+    [SerializeField] private GameObject _radioButtons;
 
     public void ShowMeasureButtons()
     {
@@ -17,9 +20,27 @@ public class GameCanvasViev : MonoBehaviour
         HideAllButtons();
        _repairButtons.SetActive(true);
     }
+    public void ShowWatchButtons()
+    {
+        HideAllButtons();
+        _watchButtonns.SetActive(true);
+    }
+    public void ShowTouchButtons()
+    {
+        HideAllButtons();
+        _touchButtons.SetActive(true);
+    }
+    public void ShowRadioButtons()
+    {
+        HideAllButtons();
+        _radioButtons.SetActive(true);
+    }
     public void HideAllButtons()
     {
         _measureButtons.SetActive(false);
         _repairButtons.SetActive(false);
+        _watchButtonns.SetActive(false);
+        _radioButtons.SetActive(false);
+        _touchButtons.SetActive(false);
     }
 }
