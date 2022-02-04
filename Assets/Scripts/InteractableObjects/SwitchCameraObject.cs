@@ -10,10 +10,12 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
 {
     public UnityAction<ICameraObject> SwitchCameraEvent;
     public UnityAction<string> GetNameOfObjectEvent;
+
     [SerializeField] private GameObject _camera;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _canIterractSign;
     [SerializeField] private string _nameOfObject;
+
     private GameCanvasViev _gameCanvasViev;
     private void Start()
     {
@@ -25,7 +27,6 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         _camera.SetActive(false);
         _canvas.SetActive(false);
     }
-
     public void OnClicked()
     {
         SwitchCamera();
@@ -50,7 +51,6 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         _canIterractSign.SetActive(true);
         GetNameOfObjectEvent?.Invoke(_nameOfObject);
     }
-
     public void OnHoverOut()
     {
         _canIterractSign.SetActive(false);

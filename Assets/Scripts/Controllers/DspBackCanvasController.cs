@@ -10,7 +10,6 @@ public class DspBackCanvasController : MonoBehaviour
     private void OnEnable()
     {
         _dspBackCanvasViev.ButtonTapEvent += SetShupPosition;
-
     }
     private void OnDisable()
     {

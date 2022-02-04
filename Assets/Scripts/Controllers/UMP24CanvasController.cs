@@ -10,7 +10,6 @@ public class UMP24CanvasController : MonoBehaviour
     private void OnEnable()
     {
         _ump24CanvasViev.ButtonTapEvent += SetShupPosition;
-     
     }
     private void OnDisable()
     {

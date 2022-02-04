@@ -669,12 +669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f1e56c4df1f904d9e27dd7aa20d869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _getInterractNameViev: {fileID: 709528921}
+  _getInteractNameViev: {fileID: 709528921}
   _viev: {fileID: 709528923}
-  _interractObjects:
+  _interactObjects:
   - {fileID: 919132148568129130}
   - {fileID: 919132148299863364}
-  - {fileID: 1256177999}
   - {fileID: 4688130}
   - {fileID: 760657793}
   - {fileID: 662534883}
@@ -682,6 +681,7 @@ MonoBehaviour:
   - {fileID: 2052847720}
   - {fileID: 305219239}
   - {fileID: 278910979}
+  - {fileID: 1256177999}
 --- !u!1 &85232117
 GameObject:
   m_ObjectHideFlags: 0
@@ -7361,7 +7361,7 @@ GameObject:
   - component: {fileID: 709528924}
   - component: {fileID: 709528923}
   m_Layer: 5
-  m_Name: InterractViev
+  m_Name: InteractViev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8415,7 +8415,7 @@ GameObject:
   - component: {fileID: 827121400}
   - component: {fileID: 827121399}
   m_Layer: 5
-  m_Name: InterractText
+  m_Name: InteractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

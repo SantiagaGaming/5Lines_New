@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetInterractNameController : MonoBehaviour
+public class GetInteractNameController : MonoBehaviour
 {
-    [SerializeField] private GameObject _getInterractNameViev;
+    [SerializeField] private GameObject _getInteractNameViev;
     [SerializeField] private GetInterractNameViev _viev;
-    [SerializeField] private SwitchCameraObject[] _interractObjects;
+    [SerializeField] private SwitchCameraObject[] _interactObjects;
+
     private void Start()
     {
-        foreach (var switchCameraObject in _interractObjects)
+        foreach (var switchCameraObject in _interactObjects)
         {
             switchCameraObject.GetNameOfObjectEvent += OnSetInterractText;
         }
@@ -17,10 +18,10 @@ public class GetInterractNameController : MonoBehaviour
     private void OnSetInterractText(string value)
     {
         if (value == "")
-            _getInterractNameViev.SetActive(false);
+            _getInteractNameViev.SetActive(false);
         else
         {
-            _getInterractNameViev.SetActive(true);
+            _getInteractNameViev.SetActive(true);
             _viev.ShowInterractText(value);
         }
     }

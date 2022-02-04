@@ -15,12 +15,7 @@ public class UMP24CanvasViev : MonoBehaviour
         foreach (var Button in _buttons)
         {
             Button.onClick.AddListener(() => { ButtonTapEvent?.Invoke(Button.GetComponent<Transform>(), Button.name); });
-
         }
-
-
-
     }
-
 }
 

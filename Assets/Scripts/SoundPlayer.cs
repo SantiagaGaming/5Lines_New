@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip _tapButtonSound, _mapOpenSound,_mapCloseSound,_radioSound;
+
     private AudioSource _audioSource;
     private void Start()
     {
@@ -26,5 +27,4 @@ public class SoundPlayer : MonoBehaviour
     {
         _audioSource.PlayOneShot(_radioSound);
     }
-
 }

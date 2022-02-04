@@ -10,7 +10,6 @@ public class GameCanvasViev : MonoBehaviour
     [SerializeField] private GameObject _touchButtons;
     [SerializeField] private GameObject _radioButtons;
 
-
     public void ShowMeasureButtons()
     {
         HideAllButtons();

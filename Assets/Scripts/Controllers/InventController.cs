@@ -9,7 +9,9 @@ public class InventController : MonoBehaviour
     [SerializeField] private ShupController _shupController;
     [SerializeField] private Strelka _strelka;
     [SerializeField] private ReleObjCanvas5Controller _releObjCanvas5Controller;
+
     private GameCanvasViev _currentCanvasViev;
+
     private bool _showedMap = false;
    
     private void OnEnable()
@@ -39,8 +41,6 @@ public class InventController : MonoBehaviour
         _inventoryViev.WatchButtonTapEvent -= OnWatchButtonShow;
         _strelka.GetStrelkaCondition -= OnShowStrelkaCondition;
         _releObjCanvas5Controller.NmshConditionEvent -= OnShowNmshCondition;
-
-
     }
     private void OnMapShow()
     {
@@ -113,5 +113,4 @@ public class InventController : MonoBehaviour
             _inventoryViev.ShowMeasureText(lie);
         }
     }
-
 }

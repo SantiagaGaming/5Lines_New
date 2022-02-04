@@ -25,7 +25,5 @@ public class Door : AosObjectBase, IClickAble
     public void OnClicked()
     {
         StartTeleporting();
-
     }
-  
 }

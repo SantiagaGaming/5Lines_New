@@ -11,6 +11,7 @@ public class CameraSwitchContoller : MonoBehaviour
     [SerializeField] private GameObject _inventoryViev;
     [SerializeField] private GameObject _playerCrossHair;
     [SerializeField] private SoundPlayer _soundPlayer;
+
     private InventoryViev _inventory;
     private ICameraObject _currentCamera;
 
@@ -19,7 +20,6 @@ public class CameraSwitchContoller : MonoBehaviour
         foreach (var switchCameraObject in _switchCameraObjects)
         {
             switchCameraObject.SwitchCameraEvent += OnDisablePlayerCamera;
-        
         }
         _inventory = _inventoryViev.GetComponent<InventoryViev>();
     }
@@ -33,12 +33,11 @@ public class CameraSwitchContoller : MonoBehaviour
     }
     private void OnDisablePlayerCamera(ICameraObject camera)
     {
-            Player.Instance.EnableCamera(false);
-        _playerCrossHair.SetActive(false);
             _inventoryViev.SetActive(true);
+             Player.Instance.EnableCamera(false);
+            _playerCrossHair.SetActive(false);
             ShowDisableCursor(false);
-
-        _currentCamera = camera;
+           _currentCamera = camera;
     }
     private void OnEnablePlayerCamera()
     {
@@ -65,7 +64,5 @@ public class CameraSwitchContoller : MonoBehaviour
             Cursor.visible = false;
             Player.Instance.CanMove = true;
         }
-    
     }
-
 }

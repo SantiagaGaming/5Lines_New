@@ -12,10 +12,7 @@ public class DspFrontCanvasViev : MonoBehaviour
     [SerializeField] private Button _minusStrelkaButton;
     private void Start()
     {
- 
         _plusStrelkaButton.onClick.AddListener(() => { PlusMinusButtonTapEvent.Invoke(true); });
         _minusStrelkaButton.onClick.AddListener(() => { PlusMinusButtonTapEvent.Invoke(false); });
-
     }
-
 }

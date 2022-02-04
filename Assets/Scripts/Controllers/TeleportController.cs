@@ -15,12 +15,9 @@ public class TeleportController : MonoBehaviour
             Door.TeleportToObjectEvent += OnStartTeleporting;
         }
     }
-
-
     private void OnStartTeleporting(Transform newPlayerPosition)
     {
         Player.Instance.TeleportTo(newPlayerPosition);
         _cameraFlash.CameraFlashStart();
-
     }
 }
