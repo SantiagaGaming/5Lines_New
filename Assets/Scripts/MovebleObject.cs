@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NmshBfk : MonoBehaviour
+public class MovebleObject : MonoBehaviour
 {
-    [SerializeField] private GameObject _nmshBfkButton;
+    [SerializeField] private GameObject _moveObjButton;
     [SerializeField] private bool _condition;
     public void RepairNmsh()
     {
@@ -12,7 +12,7 @@ public class NmshBfk : MonoBehaviour
     }
     private IEnumerator Move()
     { int x = 0;
-        _nmshBfkButton.SetActive(false);
+        _moveObjButton.SetActive(false);
         _condition = true;
         while (x<=16)
         {
@@ -26,7 +26,7 @@ public class NmshBfk : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             x--;
         }
-        _nmshBfkButton.SetActive(true);
+        _moveObjButton.SetActive(true);
     }
     public bool GetCondition()
     {

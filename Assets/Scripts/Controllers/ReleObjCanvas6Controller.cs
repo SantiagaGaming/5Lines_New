@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ReleObjCanvas5Controller : MonoBehaviour
+public class ReleObjCanvas6Controller : MonoBehaviour
 {
-    public UnityAction<bool> NmshConditionEvent;
+    public UnityAction<bool> ObjConditionEvent;
 
-    [SerializeField] private ReleObjCanvas5Viev _viev;
-    [SerializeField] private MovebleObject[] _nmshBfks;
+    [SerializeField] private ReleObjCanvas6Viev _viev;
+    [SerializeField] private MovebleObject[] _objects;
 
     private void OnEnable()
     {
@@ -22,17 +22,17 @@ public class ReleObjCanvas5Controller : MonoBehaviour
     }
     private void OnChangeObjectCondition(int number)
     {
-        _nmshBfks[number].RepairNmsh();
+        _objects[number].RepairNmsh();
     }
     private void OnShowObjectCondition(int number)
     {
-        if (_nmshBfks[number].GetCondition())
+        if (_objects[number].GetCondition())
         {
-            NmshConditionEvent?.Invoke(true);
+            ObjConditionEvent?.Invoke(true);
         }
         else
         {
-            NmshConditionEvent?.Invoke(false);
+            ObjConditionEvent?.Invoke(false);
         }
 
     }
