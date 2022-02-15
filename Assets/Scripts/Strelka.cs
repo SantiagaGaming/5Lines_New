@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Strelka : MonoBehaviour
 {
+    
     public UnityAction <bool> GetStrelkaCondition;
 
     private bool _condition;

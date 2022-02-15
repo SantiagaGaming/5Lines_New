@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class RailCanvasViev : MonoBehaviour
 {
-    public UnityAction<int> TouchButtonTapEvent;
+    public UnityAction TouchButtonLeftTapEvent;
+    public UnityAction TouchButtonRightTapEvent;
+
     public UnityAction<int> WatchButtonTapEvent;
     public UnityAction<bool> PlusMinusButtonTapEvent;
 
@@ -24,8 +26,8 @@ public class RailCanvasViev : MonoBehaviour
     private void Start()
     {
 
-        _touchButton1.onClick.AddListener(() => { RepairAndHide(0); });
-        _touchButton2.onClick.AddListener(() => { RepairAndHide(1); });
+        _touchButton1.onClick.AddListener(() => { TouchButtonRightTapEvent?.Invoke(); });
+        _touchButton2.onClick.AddListener(() => { TouchButtonLeftTapEvent?.Invoke(); });
 
 
         _watchButton1.onClick.AddListener(() => { WatchButtonTapEvent?.Invoke(0); });
@@ -36,8 +38,5 @@ public class RailCanvasViev : MonoBehaviour
 
 
     }
-    private void RepairAndHide(int number)
-    {
-        TouchButtonTapEvent?.Invoke(number);
-    }
+
 }
