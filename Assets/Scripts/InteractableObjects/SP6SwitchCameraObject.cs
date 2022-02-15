@@ -6,17 +6,63 @@ using UnityEngine.Events;
 public class SP6SwitchCameraObject : SwitchCameraObject
 {
     [SerializeField] private Animator _anim;
+    [SerializeField] private GameObject _roof;
+    [SerializeField] private InventoryViev _invetory;
+    private void OnEnable()
+    {
+        _invetory.BackButtonTapEvent += OnCloseSp6;
+    }
 
+    private void OnDisable()
+    {
+        _invetory.BackButtonTapEvent -= OnCloseSp6;
+    }
 
     public override void OnClicked()
     {
-        base.OnClicked();
-        PlaySP6Anim();
+        StartCoroutine(PlaySp6Anim(true));
     }
-    private void PlaySP6Anim()
+    private void OnCloseSp6()
+    {
+        PlaySp6Anim(false);
+    }
+    private IEnumerator PlaySp6Anim(bool value)
     {
         _anim.SetTrigger("kurbelOut");
+        yield return new WaitForSeconds(GetAnimLenght());
+        StartCoroutine(RoofRotator(value));
+        _anim.SetTrigger("kurbelIn");
+        yield return new WaitForSeconds(GetAnimLenght());
+        if(value)
+        base.OnClicked();
     }
-
-
+    private IEnumerator RoofRotator(bool value)
+    {
+        if (value)
+        {
+            int z = 0;
+            while (z <= 120)
+            {
+                _roof.transform.localRotation = Quaternion.Euler(0, 0, z);
+                z++;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else
+        {
+            int z = 120;
+            while (z >= 0)
+            {
+                _roof.transform.localRotation = Quaternion.Euler(0, 0, z);
+                z--;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+    }
+    private float GetAnimLenght()
+    {
+        AnimatorStateInfo info = _anim.GetCurrentAnimatorStateInfo(0);
+      float animLenght = info.length;
+        return animLenght;
+    }
 }
