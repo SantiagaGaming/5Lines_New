@@ -11,12 +11,12 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
     public UnityAction<ICameraObject> SwitchCameraEvent;
     public UnityAction<string> GetNameOfObjectEvent;
 
-    [SerializeField] private GameObject _camera;
-    [SerializeField] private GameObject _canvas;
-    [SerializeField] private GameObject _canIterractSign;
-    [SerializeField] private string _nameOfObject;
+    [SerializeField] protected GameObject _camera;
+    [SerializeField] protected GameObject _canvas;
+    [SerializeField]protected GameObject _canIterractSign;
+    [SerializeField] protected string _nameOfObject;
 
-    private GameCanvasViev _gameCanvasViev;
+   protected GameCanvasViev _gameCanvasViev;
     private void Start()
     {
         _gameCanvasViev = _canvas.GetComponent<GameCanvasViev>();
@@ -27,12 +27,12 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         _camera.SetActive(false);
         _canvas.SetActive(false);
     }
-    public void OnClicked()
+    public virtual void OnClicked()
     {
         SwitchCamera();
         _canIterractSign.SetActive(false);
     }
-    private void SwitchCamera()
+    protected void SwitchCamera()
     {
         _camera.SetActive(true);
         _canvas.SetActive(true);
@@ -40,7 +40,7 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         GetNameOfObjectEvent?.Invoke("");
         SwitchCameraEvent?.Invoke(this);
     }
-    private void SetGameCanvasViev()
+   protected void SetGameCanvasViev()
     {
         InventController tempInvent = FindObjectOfType<InventController>();
         tempInvent.SetCurrentCanvas(_gameCanvasViev);
