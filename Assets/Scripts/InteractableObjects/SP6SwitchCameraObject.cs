@@ -54,7 +54,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
             {
                 _roof.transform.localRotation = Quaternion.Euler(0, 0, z);
                 z++;
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.005f);
             }
         }
         else
