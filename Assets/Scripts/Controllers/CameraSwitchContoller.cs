@@ -65,4 +65,10 @@ public class CameraSwitchContoller : MonoBehaviour
             Player.Instance.CanMove = true;
         }
     }
+    public bool CompareObjects(ICameraObject obj)
+    {
+        if (obj.Equals(_currentCamera))
+            return true;
+        else return false;
+    }
 }

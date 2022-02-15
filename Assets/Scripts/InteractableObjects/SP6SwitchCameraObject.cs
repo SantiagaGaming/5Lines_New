@@ -8,6 +8,9 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     [SerializeField] private Animator _anim;
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
+    [SerializeField] private CameraSwitchContoller _cameraController;
+
+    private bool _isAmimated = false;
     private void OnEnable()
     {
         _invetory.BackButtonTapEvent += OnCloseSp6;
@@ -24,17 +27,23 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     }
     private void OnCloseSp6()
     {
-        PlaySp6Anim(false);
+        if (_cameraController.CompareObjects(this))
+        StartCoroutine(PlaySp6Anim(false));
     }
     private IEnumerator PlaySp6Anim(bool value)
     {
-        _anim.SetTrigger("kurbelOut");
-        yield return new WaitForSeconds(GetAnimLenght());
-        StartCoroutine(RoofRotator(value));
-        _anim.SetTrigger("kurbelIn");
-        yield return new WaitForSeconds(GetAnimLenght());
-        if(value)
-        base.OnClicked();
+        if(!_isAmimated)
+        {
+            _isAmimated = true;
+            _anim.SetTrigger("kurbelOut");
+            yield return new WaitForSeconds(GetAnimLenght());
+            StartCoroutine(RoofRotator(value));
+            _anim.SetTrigger("kurbelIn");
+            yield return new WaitForSeconds(GetAnimLenght());
+            if (value)
+                base.OnClicked();
+            _isAmimated = false;
+        }
     }
     private IEnumerator RoofRotator(bool value)
     {

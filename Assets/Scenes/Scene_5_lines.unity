@@ -1056,6 +1056,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+      propertyPath: _roof
+      value: 
+      objectReference: {fileID: 1024946854}
+    - target: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1904972208}
+    - target: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+      propertyPath: _canvas
+      value: 
+      objectReference: {fileID: 559581796}
+    - target: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+      propertyPath: _invetory
+      value: 
+      objectReference: {fileID: 636815693}
+    - target: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 809673545}
     - target: {fileID: 7143106911984180506, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1104,14 +1124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UMP24
       objectReference: {fileID: 0}
-    - target: {fileID: 7524029848977934243, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 1904972208}
-    - target: {fileID: 7524029848977934243, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
-      propertyPath: _canvas
-      value: 
-      objectReference: {fileID: 559581796}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
 --- !u!1 &134372022
@@ -9850,13 +9862,13 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!114 &829152716 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7524029848977934243, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1004214696766686427, guid: 790751f78e4c92c4b9694d66bd000358, type: 3}
   m_PrefabInstance: {fileID: 117514569}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484b592f79816b64daf8d638f00dba6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a60374dacf6c341a9212659daf9f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &831129175
@@ -11930,6 +11942,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001362789}
   m_CullTransparentMesh: 1
+--- !u!1 &1024946854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723139796695287830, guid: 2cf5ad3a6a6c2cd49a345546f9fa5af1, type: 3}
+  m_PrefabInstance: {fileID: 7401682128444498225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1038801842
 GameObject:
   m_ObjectHideFlags: 0
@@ -22753,6 +22770,10 @@ PrefabInstance:
       propertyPath: _invetory
       value: 
       objectReference: {fileID: 636815693}
+    - target: {fileID: 1562919233, guid: ac23b100fa9b0bc41ae1c122aebb68a2, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 809673545}
     - target: {fileID: 2667170013289990931, guid: ac23b100fa9b0bc41ae1c122aebb68a2, type: 3}
       propertyPath: m_Name
       value: SP6
@@ -22878,6 +22899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2063213981835514540, guid: 2cf5ad3a6a6c2cd49a345546f9fa5af1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 5952950201290906889, guid: 2cf5ad3a6a6c2cd49a345546f9fa5af1, type: 3}
       propertyPath: m_RootOrder
       value: 22

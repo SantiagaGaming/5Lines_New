@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6093003545479172799}
   - component: {fileID: 8316535771623040629}
   - component: {fileID: 7524029848977934242}
-  - component: {fileID: 7524029848977934243}
+  - component: {fileID: 1004214696766686427}
   m_Layer: 0
   m_Name: UMP24
   m_TagString: Untagged
@@ -179,7 +179,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4036951, y: 0.5363662, z: 0.221529}
   m_Center: {x: -9.2120075, y: 0.60288954, z: 2.2938166}
---- !u!114 &7524029848977934243
+--- !u!114 &1004214696766686427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,10 +188,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7524029848977934240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484b592f79816b64daf8d638f00dba6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a60374dacf6c341a9212659daf9f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
   _canvas: {fileID: 0}
   _canIterractSign: {fileID: 1637896680}
   _nameOfObject: UMP 24
+  _roof: {fileID: 0}
+  _invetory: {fileID: 0}
