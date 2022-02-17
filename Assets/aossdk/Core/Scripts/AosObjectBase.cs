@@ -10,20 +10,33 @@ namespace AosSdk.Core.Scripts
     [DisallowMultipleComponent]
     public class AosObjectBase : MonoBehaviour
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         [ReadOnly]
-        #endif
+#endif
         public string objectStaticGuid = string.Empty;
 
         public delegate void AosEventHandler();
 
+        public delegate void AosEventHandlerWithAttribute(object parameter);
+
         public static void InheritEventFired(EventHandlerHelper helper)
-        { 
+        {
             WebSocketWrapper.Instance.DoSendMessage(new ServerMessageEvent
             {
                 type = ServerMessageType.Event.ToString(),
                 eventName = helper.EventName,
-                objectGuid = helper.GameObjectGuid
+                objectGuid = helper.GameObjectGuid,
+            });
+        }
+
+        public static void InheritEventWithParameterFired(EventHandlerHelper helper, object attribute)
+        {
+            WebSocketWrapper.Instance.DoSendMessage(new ServerMessageEvent
+            {
+                type = ServerMessageType.Event.ToString(),
+                eventName = helper.EventName,
+                objectGuid = helper.GameObjectGuid,
+                castedToStringAttribute = attribute.ToString()
             });
         }
 
@@ -37,12 +50,21 @@ namespace AosSdk.Core.Scripts
                 }
 
                 var handlerType = eventInfo.EventHandlerType;
-                var eventHandler = GetType().GetMethod("InheritEventFired",
+
+                var invokeParameters = handlerType.GetMethod("Invoke")?.GetParameters();
+
+                if (invokeParameters == null)
+                {
+                    Debug.LogError($"Invoke for {handlerType.Name} is broken!");
+                    return;
+                }
+
+                var eventHandler = GetType().GetMethod(invokeParameters.Length == 0 ? "InheritEventFired" : "InheritEventWithParameterFired",
                     BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static);
-                eventInfo.AddEventHandler(this,
-                    Delegate.CreateDelegate(handlerType,
-                        new EventHandlerHelper {GameObjectGuid = objectStaticGuid, EventName = eventInfo.Name},
-                        eventHandler ?? throw new InvalidOperationException()));
+
+                var eventHandlerHelper = new EventHandlerHelper {GameObjectGuid = objectStaticGuid, EventName = eventInfo.Name};
+                var delegateMethod = Delegate.CreateDelegate(handlerType, eventHandlerHelper, eventHandler ?? throw new InvalidOperationException());
+                eventInfo.AddEventHandler(this, delegateMethod);
             }
         }
 
@@ -68,7 +90,7 @@ namespace AosSdk.Core.Scripts
         private IEnumerator ExecuteCommandRoutine(AosCommand command)
         {
             yield return new WaitForSeconds(command.delay);
-            
+
             command.CastParameters();
 
             var parametersType = new Type[command.CastedParameters.Length];
@@ -87,7 +109,7 @@ namespace AosSdk.Core.Scripts
             }
 
             methodInfo.Invoke(this, command.CastedParameters);
-            
+
             WebSocketWrapper.Instance.DoSendMessage(new ServerMessageCallback
             {
                 objectGuid = objectStaticGuid,

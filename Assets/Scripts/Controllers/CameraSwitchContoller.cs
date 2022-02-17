@@ -12,6 +12,8 @@ public class CameraSwitchContoller : MonoBehaviour
     [SerializeField] private GameObject _playerCrossHair;
     [SerializeField] private SoundPlayer _soundPlayer;
 
+    [HideInInspector] public bool CanSwitch = true;
+
     private InventoryViev _inventory;
     private ICameraObject _currentCamera;
 

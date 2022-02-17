@@ -95,6 +95,7 @@ public class InventController : MonoBehaviour
     {
         _inventoryViev.ShowMessageWindow(false);
         _currentCanvasViev.HideAllButtons();
+        _shupController.ResetShupPosition();
     }
     private void OnShowNmshCondition(bool value)
     {

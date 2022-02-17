@@ -1,17 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
+using AosSdk.Core.Interfaces;
+using AosSdk.Core.Scripts;
 using UnityEngine;
+using AosSdk.Core.Player.Scripts;
+using UnityEngine.Events;
 
-public class MovebleObject : MonoBehaviour
+[AosObject(name: "Двигающийся объект")]
+public class MovebleObject : AosObjectBase
 {
     [SerializeField] private GameObject _moveObjButton;
     [SerializeField] private bool _condition;
+
+    [AosEvent(name: "Смена состояния объекта")]
+    public event AosEventHandler OnRepairObject;
+
+    [AosAction(name: "Починить Объект")]
     public void RepairNmsh()
     {
         StartCoroutine(Move());
     }
     private IEnumerator Move()
     { int x = 0;
+        OnRepairObject?.Invoke();
         _moveObjButton.SetActive(false);
         _condition = true;
         while (x<=16)

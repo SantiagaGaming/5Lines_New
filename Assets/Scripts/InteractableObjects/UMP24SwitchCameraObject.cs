@@ -8,7 +8,6 @@ public class UMP24SwitchCameraObject : SwitchCameraObject
 
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
-    [SerializeField] private CameraSwitchContoller _cameraController;
 
     private bool _isAmimated = false;
     private void OnEnable()
@@ -26,14 +25,15 @@ public class UMP24SwitchCameraObject : SwitchCameraObject
     }
     private void OnCloseUMPRoof()
     {
-        if(_cameraController.CompareObjects(this))
+        if(_cameraSwitch.CompareObjects(this))
         StartCoroutine(RoofMover(false));
     }
 
     private IEnumerator RoofMover(bool value)
     {
-        if(!_isAmimated)
+        if(!_isAmimated && _cameraSwitch.CanSwitch)
         {
+            _cameraSwitch.CanSwitch = false;
             _isAmimated = true;
             int y = 0;
             while (y < 25)
@@ -45,9 +45,11 @@ public class UMP24SwitchCameraObject : SwitchCameraObject
                 yield return new WaitForSeconds(0.02f);
                 y++;
             }
-            if(value)
+            _cameraSwitch.CanSwitch = true;
+            if (value)
             base.OnClicked();
             _isAmimated = false;
+  
         }
     }
 }

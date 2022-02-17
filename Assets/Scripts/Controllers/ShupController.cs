@@ -1,10 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
+using AosSdk.Core.Interfaces;
 using AosSdk.Core.Scripts;
 using UnityEngine;
+using AosSdk.Core.Player.Scripts;
 using UnityEngine.Events;
 
-public class ShupController : MonoBehaviour
+[AosObject(name: "Щуп")]
+public class ShupController : AosObjectBase
 {
     public UnityAction<string> SetMeasureTextEvent;
 
@@ -12,11 +14,16 @@ public class ShupController : MonoBehaviour
     [SerializeField] private GameObject _blackShup;
     [SerializeField] private InventoryViev _inventViev;
 
+    [AosEvent(name: "Измерение точки событие")]
+    public event AosEventHandlerWithAttribute OnShupConnected;
+
     private bool _firstMeasure = false;
-    private string _measureText;
- 
-    public void SetShupPosition(Transform newPos, string text)
+    public string measureText;
+
+    [AosAction(name: "Измерение точки")]
+    public string SetShupPosition([AosParameter("Позиция щупа и название точки измерения")]Transform newPos, string text)
     {
+        OnShupConnected?.Invoke(measureText);
         if (!_firstMeasure)
         {
             if (_redShup.transform.position != newPos.position && _blackShup.transform.position != newPos.position)
@@ -24,8 +31,9 @@ public class ShupController : MonoBehaviour
                 _redShup.transform.position = newPos.position;
                 _blackShup.transform.position = Vector3.zero;
                 _firstMeasure = true;
-                _measureText = text;
-                SetMeasureTextEvent?.Invoke(_measureText);
+                measureText = text;
+                SetMeasureTextEvent?.Invoke(measureText);
+         
             }
         }
         else if (_firstMeasure)
@@ -34,24 +42,18 @@ public class ShupController : MonoBehaviour
             {
                 _blackShup.transform.position = newPos.position;
                 _firstMeasure = false;
-                _measureText += " " + text;
-                SetMeasureTextEvent?.Invoke(_measureText);
+                measureText += " " + text;
+                SetMeasureTextEvent?.Invoke(measureText);
             }
         }
+        return measureText;
     }
-    private void OnEnable()
-    {
-        _inventViev.BackButtonTapEvent += OnResetShupPosition;
-    }
-    private void OnDisable()
-    {
-        _inventViev.BackButtonTapEvent -= OnResetShupPosition;
-    }
-    private void OnResetShupPosition()
+
+  public void ResetShupPosition()
     {
         _redShup.transform.position = Vector3.zero;
         _blackShup.transform.position = Vector3.zero;
-        _measureText = "";
+        measureText = "";
         _firstMeasure = false;
     }
 }

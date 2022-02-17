@@ -13,13 +13,17 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
 
     [SerializeField] protected GameObject _camera;
     [SerializeField] protected GameObject _canvas;
-    [SerializeField]protected GameObject _canIterractSign;
+    [SerializeField] protected GameObject _canIterractSign;
+
     [SerializeField] protected string _nameOfObject;
 
-   protected GameCanvasViev _gameCanvasViev;
+    protected CameraSwitchContoller _cameraSwitch;
+    protected GameCanvasViev _gameCanvasViev;
+
     private void Start()
     {
         _gameCanvasViev = _canvas.GetComponent<GameCanvasViev>();
+        _cameraSwitch = FindObjectOfType<CameraSwitchContoller>();
     }
 
     public void DisableCamera()
@@ -29,8 +33,12 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
     }
     public virtual void OnClicked()
     {
-        SwitchCamera();
-        _canIterractSign.SetActive(false);
+        if(_cameraSwitch.CanSwitch)
+        {
+            SwitchCamera();
+            _canIterractSign.SetActive(false);
+        }
+
     }
     protected void SwitchCamera()
     {

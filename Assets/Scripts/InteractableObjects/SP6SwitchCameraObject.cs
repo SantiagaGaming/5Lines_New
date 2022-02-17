@@ -8,7 +8,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     [SerializeField] private Animator _anim;
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
-    [SerializeField] private CameraSwitchContoller _cameraController;
+
 
     private bool _isAmimated = false;
     private void OnEnable()
@@ -27,13 +27,14 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     }
     private void OnCloseSp6()
     {
-        if (_cameraController.CompareObjects(this))
+        if (_cameraSwitch.CompareObjects(this))
         StartCoroutine(PlaySp6Anim(false));
     }
     private IEnumerator PlaySp6Anim(bool value)
     {
-        if(!_isAmimated)
+        if(!_isAmimated && _cameraSwitch.CanSwitch)
         {
+            _cameraSwitch.CanSwitch = false;
             _isAmimated = true;
             _anim.SetTrigger("kurbelOut");
             yield return new WaitForSeconds(GetAnimLenght());
@@ -49,6 +50,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     {
         if (value)
         {
+
             int z = 0;
             while (z <= 120)
             {
@@ -56,6 +58,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
                 z++;
                 yield return new WaitForSeconds(0.005f);
             }
+     
         }
         else
         {
@@ -67,6 +70,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
                 yield return new WaitForSeconds(0.01f);
             }
         }
+        _cameraSwitch.CanSwitch = true;
     }
     private float GetAnimLenght()
     {

@@ -106,5 +106,6 @@ namespace AosSdk.Core.Scripts
     public class ServerMessageEvent : ServerMessage
     {
         public string eventName;
+        public string castedToStringAttribute;
     }
 }
