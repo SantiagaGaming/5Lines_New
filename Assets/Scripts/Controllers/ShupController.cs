@@ -23,7 +23,7 @@ public class ShupController : AosObjectBase
     [AosAction(name: "Измерение точки")]
     public string SetShupPosition([AosParameter("Позиция щупа и название точки измерения")]Transform newPos, string text)
     {
-        OnShupConnected?.Invoke(measureText);
+      
         if (!_firstMeasure)
         {
             if (_redShup.transform.position != newPos.position && _blackShup.transform.position != newPos.position)
@@ -33,7 +33,7 @@ public class ShupController : AosObjectBase
                 _firstMeasure = true;
                 measureText = text;
                 SetMeasureTextEvent?.Invoke(measureText);
-         
+                OnShupConnected?.Invoke(measureText);
             }
         }
         else if (_firstMeasure)
@@ -44,6 +44,7 @@ public class ShupController : AosObjectBase
                 _firstMeasure = false;
                 measureText += " " + text;
                 SetMeasureTextEvent?.Invoke(measureText);
+                OnShupConnected?.Invoke(measureText);
             }
         }
         return measureText;
