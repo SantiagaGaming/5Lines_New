@@ -44,6 +44,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
             if (value)
                 base.OnClicked();
             _isAmimated = false;
+            yield return new WaitForSeconds(2f);
         }
     }
     private IEnumerator RoofRotator(bool value)
@@ -56,7 +57,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
             {
                 _roof.transform.localRotation = Quaternion.Euler(0, 0, z);
                 z++;
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(0.001f);
             }
      
         }
@@ -67,7 +68,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
             {
                 _roof.transform.localRotation = Quaternion.Euler(0, 0, z);
                 z--;
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.001f);
             }
         }
         _cameraSwitch.CanSwitch = true;

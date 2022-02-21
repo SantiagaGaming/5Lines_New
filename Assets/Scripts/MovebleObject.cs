@@ -5,34 +5,35 @@ using UnityEngine;
 using AosSdk.Core.Player.Scripts;
 using UnityEngine.Events;
 
-[AosObject(name: "Двигающийся объект")]
-public class MovebleObject : AosObjectBase
+
+public class MovebleObject : MonoBehaviour
 {
     [SerializeField] private GameObject _moveObjButton;
     [SerializeField] private bool _condition;
-
-    [AosEvent(name: "Смена состояния объекта")]
-    public event AosEventHandler OnRepairObject;
-
-    [AosAction(name: "Починить Объект")]
-    public void RepairNmsh()
+    [SerializeField] private bool _yPoz;
+    public void RepairObject()
     {
         StartCoroutine(Move());
     }
     private IEnumerator Move()
     { int x = 0;
-        OnRepairObject?.Invoke();
         _moveObjButton.SetActive(false);
         _condition = true;
         while (x<=16)
         {
+            if(!_yPoz)
            transform.position += new Vector3(0.025f, 0, 0);
+            else
+                transform.position += new Vector3(0, 0.025f, 0);
             yield return new WaitForSeconds(0.05f);
             x++;
         }
         while(x>0)
         {
-            transform.position -= new Vector3(0.025f, 0, 0);
+            if (!_yPoz)
+                transform.position -= new Vector3(0.025f, 0, 0);
+            else
+                transform.position -= new Vector3(0, 0.025f, 0);
             yield return new WaitForSeconds(0.05f);
             x--;
         }

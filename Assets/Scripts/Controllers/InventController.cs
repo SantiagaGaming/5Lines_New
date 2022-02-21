@@ -10,6 +10,7 @@ public class InventController : MonoBehaviour
     [SerializeField] private Strelka _strelka;
     [SerializeField] private ReleObjCanvas5Controller _releObjCanvas5Controller;
     [SerializeField] private ReleObjCanvas6Controller _releObjCanvas6Controller;
+    [SerializeField] private UMP24CanvasController _ump24CanvasController;
 
     private GameCanvasViev _currentCanvasViev;
 
@@ -27,8 +28,9 @@ public class InventController : MonoBehaviour
         _inventoryViev.TouchButtonTapEvent += OnTouchButtonShow;
         _inventoryViev.WatchButtonTapEvent += OnWatchButtonShow;
         _strelka.GetStrelkaCondition += OnShowStrelkaCondition;
-        _releObjCanvas5Controller.NmshConditionEvent += OnShowNmshCondition;
-        _releObjCanvas6Controller.ObjConditionEvent += OnShowNmshCondition;
+        _releObjCanvas5Controller.MovableObjectConditionEvent += OnShowObjectCondition;
+        _ump24CanvasController.MovableObjectConditionEvent += OnShowObjectCondition;
+        _releObjCanvas6Controller.ObjConditionEvent += OnShowObjectCondition;
     }
     private void OnDisable()
     {
@@ -42,8 +44,9 @@ public class InventController : MonoBehaviour
         _inventoryViev.TouchButtonTapEvent -= OnTouchButtonShow;
         _inventoryViev.WatchButtonTapEvent -= OnWatchButtonShow;
         _strelka.GetStrelkaCondition -= OnShowStrelkaCondition;
-        _releObjCanvas5Controller.NmshConditionEvent -= OnShowNmshCondition;
-        _releObjCanvas6Controller.ObjConditionEvent -= OnShowNmshCondition;
+        _releObjCanvas5Controller.MovableObjectConditionEvent -= OnShowObjectCondition;
+        _ump24CanvasController.MovableObjectConditionEvent -= OnShowObjectCondition;
+        _releObjCanvas6Controller.ObjConditionEvent -= OnShowObjectCondition;
     }
     private void OnMapShow()
     {
@@ -97,7 +100,7 @@ public class InventController : MonoBehaviour
         _currentCanvasViev.HideAllButtons();
         _shupController.ResetShupPosition();
     }
-    private void OnShowNmshCondition(bool value)
+    private void OnShowObjectCondition(bool value)
     {
         SetMessageWindowText(value, "Исправен", "Не Исправен");
     }

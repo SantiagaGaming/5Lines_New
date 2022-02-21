@@ -22,7 +22,7 @@ public class ReleObjCanvas6Controller : MonoBehaviour
     }
     private void OnChangeObjectCondition(int number)
     {
-        _objects[number].RepairNmsh();
+        _objects[number].RepairObject();
     }
     private void OnShowObjectCondition(int number)
     {

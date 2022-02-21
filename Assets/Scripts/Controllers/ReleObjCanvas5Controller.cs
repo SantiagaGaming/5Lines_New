@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ReleObjCanvas5Controller : MonoBehaviour
 {
-    public UnityAction<bool> NmshConditionEvent;
+    public UnityAction<bool> MovableObjectConditionEvent;
 
     [SerializeField] private ReleObjCanvas5Viev _viev;
     [SerializeField] private MovebleObject[] _nmshBfks;
@@ -22,17 +22,17 @@ public class ReleObjCanvas5Controller : MonoBehaviour
     }
     private void OnChangeObjectCondition(int number)
     {
-        _nmshBfks[number].RepairNmsh();
+        _nmshBfks[number].RepairObject();
     }
     private void OnShowObjectCondition(int number)
     {
         if (_nmshBfks[number].GetCondition())
         {
-            NmshConditionEvent?.Invoke(true);
+            MovableObjectConditionEvent?.Invoke(true);
         }
         else
         {
-            NmshConditionEvent?.Invoke(false);
+            MovableObjectConditionEvent?.Invoke(false);
         }
 
     }
