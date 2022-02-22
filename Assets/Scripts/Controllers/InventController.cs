@@ -11,6 +11,7 @@ public class InventController : MonoBehaviour
     [SerializeField] private ReleObjCanvas5Controller _releObjCanvas5Controller;
     [SerializeField] private ReleObjCanvas6Controller _releObjCanvas6Controller;
     [SerializeField] private UMP24CanvasController _ump24CanvasController;
+    [SerializeField] private GameCanvasViev[] _gameCanvasVievs;
 
     private GameCanvasViev _currentCanvasViev;
 
@@ -47,6 +48,13 @@ public class InventController : MonoBehaviour
         _releObjCanvas5Controller.MovableObjectConditionEvent -= OnShowObjectCondition;
         _ump24CanvasController.MovableObjectConditionEvent -= OnShowObjectCondition;
         _releObjCanvas6Controller.ObjConditionEvent -= OnShowObjectCondition;
+    }
+    private void Start()
+    {
+        foreach (var gameCanvas in _gameCanvasVievs)
+        {
+            gameCanvas.ButtonsHidedEvent += OnHideShup;
+        }
     }
     private void OnMapShow()
     {
@@ -119,5 +127,9 @@ public class InventController : MonoBehaviour
         {
             _inventoryViev.ShowMeasureText(lie);
         }
+    }
+    private void OnHideShup()
+    {
+        _shupController.ResetShupPosition();
     }
 }

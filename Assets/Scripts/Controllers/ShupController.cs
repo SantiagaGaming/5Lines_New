@@ -12,7 +12,6 @@ public class ShupController : AosObjectBase
 
     [SerializeField] private GameObject _redShup;
     [SerializeField] private GameObject _blackShup;
-    [SerializeField] private InventoryViev _inventViev;
 
     [AosEvent(name: "Измерение точки событие")]
     public event AosEventHandlerWithAttribute OnShupConnected;

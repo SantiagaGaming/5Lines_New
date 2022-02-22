@@ -8,10 +8,12 @@ public class SP6CanvasViev : MonoBehaviour
 {
     public UnityAction<Transform, string> ButtonTapEvent;
     public UnityAction<bool> PlusMinusButtonTapEvent;
+    public UnityAction<int> RepairButtonTapEvent;
 
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Button _plusStrelkaButton;
     [SerializeField] private Button _minusStrelkaButton;
+    [SerializeField] private Button _repairButton;
     private void Start()
     {
         foreach (var Button in _buttons)
@@ -20,5 +22,11 @@ public class SP6CanvasViev : MonoBehaviour
         }
         _plusStrelkaButton.onClick.AddListener(() => { PlusMinusButtonTapEvent.Invoke(true); });
         _minusStrelkaButton.onClick.AddListener(() => { PlusMinusButtonTapEvent.Invoke(false) ; });
+        _repairButton.onClick.AddListener(() => { RepairAndHide(0);});
+    }
+
+    private void RepairAndHide(int number)
+    {
+        RepairButtonTapEvent?.Invoke(number);
     }
 }

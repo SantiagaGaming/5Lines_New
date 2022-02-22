@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameCanvasViev : MonoBehaviour
 {
+
+    public UnityAction ButtonsHidedEvent;
+    
     [SerializeField] private GameObject _measureButtons;
     [SerializeField] private GameObject _repairButtons;
     [SerializeField] private GameObject _watchButtonns;
@@ -42,5 +46,6 @@ public class GameCanvasViev : MonoBehaviour
         _watchButtonns.SetActive(false);
         _radioButtons.SetActive(false);
         _touchButtons.SetActive(false);
+        ButtonsHidedEvent?.Invoke();
     }
 }
