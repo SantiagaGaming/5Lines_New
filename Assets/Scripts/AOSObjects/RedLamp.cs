@@ -9,16 +9,16 @@ using UnityEngine.Events;
 [AosObject(name: "Красная лампочка")]
 public class RedLamp : AosObjectBase
 {
-    [SerializeField] private LampDsp _lamp;
+    [SerializeField] private Lamp _lamp;
 
 
-    [AosAction(name: "Сминить цвет лампочки: Красный")]
+    [AosAction(name: "Сменить цвет лампочки: Красный")]
     public void SetLampColor()
     {
         _lamp.ChangeColor();
     }
 
-    [AosAction(name: "Сминить цвет лампочки: Белый")]
+    [AosAction(name: "Сменить цвет лампочки: Белый")]
     public void ResetoLampColor()
     {
         _lamp.ResetColor();

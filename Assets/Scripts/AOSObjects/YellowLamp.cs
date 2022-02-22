@@ -9,7 +9,7 @@ using UnityEngine.Events;
 [AosObject(name: "Желтая лампочка")]
 public class YellowLamp : AosObjectBase
 {
-    [SerializeField] private LampDsp _lamp;
+    [SerializeField] private Lamp _lamp;
 
 
     [AosAction(name: "Сминить цвет лампочки: Желтый")]

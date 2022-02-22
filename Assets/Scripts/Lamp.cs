@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LampDsp : MonoBehaviour
+public class Lamp : MonoBehaviour
 {
     [SerializeField] private Color _color;
 
