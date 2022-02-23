@@ -12,7 +12,7 @@ public class Lamp : MonoBehaviour
     }
    public void ResetColor()
     {
-        GetComponent<Renderer>().material.color = Color.white;
+        GetComponent<Renderer>().material.color = Color.black;
 
     }
 }

@@ -18,7 +18,7 @@ public class YellowLamp : AosObjectBase
         _lamp.ChangeColor();
     }
 
-    [AosAction(name: "Сминить цвет лампочки: Белый")]
+    [AosAction(name: "Сминить цвет лампочки: Черный")]
     public void ResetoLampColor()
     {
         _lamp.ResetColor();
