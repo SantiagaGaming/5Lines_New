@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lamp : MonoBehaviour
 {
     [SerializeField] private Color _color;
+    [SerializeField] private Color _defaultColor;
 
     public void ChangeColor()
     {
@@ -12,7 +13,7 @@ public class Lamp : MonoBehaviour
     }
    public void ResetColor()
     {
-        GetComponent<Renderer>().material.color = Color.black;
+        GetComponent<Renderer>().material.color = _defaultColor;
 
     }
 }

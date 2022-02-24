@@ -43,4 +43,8 @@ public class MovebleObject : MonoBehaviour
     {
         return _condition;
     }
+    public void SetCondition(bool value)
+    {
+        _condition = value;
+    }
 }
