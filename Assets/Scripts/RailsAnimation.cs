@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SP6Animation : MonoBehaviour
+public class RailsAnimation : MonoBehaviour
 {
     private Animator _anim;
     private void Start()
@@ -21,11 +21,9 @@ public class SP6Animation : MonoBehaviour
     public void PlayRightBrokenAnimation()
     {
         _anim.SetTrigger("FromLeftToRightBroken");
-        print("broken");
     }
     public void PlayLeftBrokenAnimation()
     {
         _anim.SetTrigger("FromRightToLeftBroken");
-        print("broken");
     }
 }

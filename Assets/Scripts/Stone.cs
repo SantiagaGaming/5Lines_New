@@ -41,4 +41,8 @@ public class Stone : MonoBehaviour
         }
         else return false;
     }
+    public void EnableStone(bool value)
+    {
+        _stone.SetActive(value);
+    }
 }

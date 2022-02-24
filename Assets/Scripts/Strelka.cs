@@ -5,12 +5,10 @@ using UnityEngine.Events;
 
 public class Strelka : MonoBehaviour
 {
-
-
     public UnityAction <bool> GetStrelkaCondition;
 
     [SerializeField] private StoneController _stoneController;
-    [SerializeField] private SP6Animation _sp6Anim;
+    [SerializeField] private RailsAnimation _sp6Anim;
 
     private bool _condition;
     public void SetCondition(bool value)

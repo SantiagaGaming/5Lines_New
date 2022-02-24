@@ -8,10 +8,10 @@ using UnityEngine.Events;
 
 public class MovebleObject : MonoBehaviour
 {
-    [SerializeField] private GameObject _moveObjButton;
-    [SerializeField] private bool _condition;
-    [SerializeField] private bool _yPoz;
-    public void RepairObject()
+    [SerializeField] protected GameObject _moveObjButton;
+    [SerializeField] protected bool _condition;
+    [SerializeField] protected bool _yPoz;
+    public virtual void RepairObject()
     {
         StartCoroutine(Move());
     }
