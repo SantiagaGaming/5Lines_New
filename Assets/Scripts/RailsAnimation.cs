@@ -8,22 +8,21 @@ public class RailsAnimation : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
-
     }
     public void PlayRightOKAnimation()
     {
-        _anim.SetTrigger("FromLeftToRightOk");
+        _anim.SetTrigger("RightOk");
     }
     public void PlayLeftOKAnimation()
     {
-        _anim.SetTrigger("FromRightToLeftOk");
+        _anim.SetTrigger("LeftOk");
     }
     public void PlayRightBrokenAnimation()
     {
-        _anim.SetTrigger("FromLeftToRightBroken");
+        _anim.SetTrigger("RightBroken");
     }
     public void PlayLeftBrokenAnimation()
     {
-        _anim.SetTrigger("FromRightToLeftBroken");
+        _anim.SetTrigger("LeftBroken");
     }
 }
