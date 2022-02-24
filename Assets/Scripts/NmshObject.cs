@@ -11,6 +11,7 @@ public class NmshObject : MovebleObject
     }
     private IEnumerator RapirNmsh()
     {
+        _moveObjButton.SetActive(false);
         int xRot = 0;
         while (xRot <= 90)
         {
@@ -19,7 +20,7 @@ public class NmshObject : MovebleObject
             yield return new WaitForSeconds(0.01f);
         }
         int x = 0;
-            _moveObjButton.SetActive(false);
+
             _condition = true;
             while (x <= 16)
             {
