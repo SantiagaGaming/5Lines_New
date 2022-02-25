@@ -15,4 +15,10 @@ public class NmshPk : AosObjectBase
         _nmsh.SetCondition(value);
     }
 
+    [AosAction(name: "Проиграть анимацию починки объекта со сменой состояния на исправен")]
+    public void RepairNmsh()
+    {
+        _nmsh.RepairObject();
+    }
+
 }
