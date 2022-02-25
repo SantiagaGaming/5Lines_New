@@ -1,7 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using AosSdk.Core.Interfaces;
+using AosSdk.Core.Utils;
+using AosSdk.Core.Player;
+using AosSdk.Core.Player.Pointer;
+using UnityEngine;
 using UnityEngine.Events;
 public class SP6SwitchCameraObject : SwitchCameraObject
 {
@@ -9,6 +11,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
 
+    private InteractHand interactHand;
 
     private bool _isAmimated = false;
     private void OnEnable()
@@ -21,7 +24,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
         _invetory.BackButtonTapEvent -= OnCloseSp6;
     }
 
-    public override void OnClicked()
+    public override void OnClicked(InteractHand interactHand)
     {
         StartCoroutine(PlaySp6Anim(true));
     }
@@ -42,7 +45,7 @@ public class SP6SwitchCameraObject : SwitchCameraObject
             _anim.SetTrigger("kurbelIn");
             yield return new WaitForSeconds(GetAnimLenght());
             if (value)
-                base.OnClicked();
+                base.OnClicked(interactHand);
             _isAmimated = false;
             yield return new WaitForSeconds(2f);
         }

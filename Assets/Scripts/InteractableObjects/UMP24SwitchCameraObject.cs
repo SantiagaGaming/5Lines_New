@@ -1,13 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using AosSdk.Core.Interfaces;
+using AosSdk.Core.Utils;
+using AosSdk.Core.Player;
+using AosSdk.Core.Player.Pointer;
+using UnityEngine;
 using UnityEngine.Events;
+
 public class UMP24SwitchCameraObject : SwitchCameraObject
 {
 
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
+
+    private InteractHand interactHand;
 
     private bool _isAmimated = false;
     private void OnEnable()
@@ -19,7 +24,7 @@ public class UMP24SwitchCameraObject : SwitchCameraObject
     {
         _invetory.BackButtonTapEvent -= OnCloseUMPRoof;
     }
-    public override void OnClicked()
+    public override void OnClicked(InteractHand interactHand)
     {
         StartCoroutine(RoofMover(true));
     }
@@ -47,7 +52,7 @@ public class UMP24SwitchCameraObject : SwitchCameraObject
             }
             _cameraSwitch.CanSwitch = true;
             if (value)
-            base.OnClicked();
+                base.OnClicked(interactHand);
             _isAmimated = false;
   
         }

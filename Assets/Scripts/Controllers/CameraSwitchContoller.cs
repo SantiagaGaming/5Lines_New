@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AosSdk.Core.Interfaces;
-using AosSdk.Core.Player.Scripts;
-using AosSdk.Core.Scripts;
+using AosSdk.Core.Player;
 
 public class CameraSwitchContoller : MonoBehaviour
 {

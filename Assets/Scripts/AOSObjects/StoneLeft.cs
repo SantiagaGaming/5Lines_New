@@ -1,8 +1,7 @@
 using System.Collections;
 using AosSdk.Core.Interfaces;
-using AosSdk.Core.Scripts;
+using AosSdk.Core.Utils;
 using UnityEngine;
-using AosSdk.Core.Player.Scripts;
 using UnityEngine.Events;
 [AosObject(name: "Левый камень")]
 public class StoneLeft : AosObjectBase

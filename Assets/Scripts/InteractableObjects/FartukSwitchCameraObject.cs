@@ -1,12 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
+using AosSdk.Core.Interfaces;
+using AosSdk.Core.Utils;
+using AosSdk.Core.Player;
+using AosSdk.Core.Player.Pointer;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FartukSwitchCameraObject : SwitchCameraObject
 {
     [SerializeField] private GameObject _roof;
     [SerializeField] private InventoryViev _invetory;
-
     private void OnEnable()
     {
         _invetory.BackButtonTapEvent += OnCloseFartuk;
@@ -17,10 +20,10 @@ public class FartukSwitchCameraObject : SwitchCameraObject
         _invetory.BackButtonTapEvent -= OnCloseFartuk;
     }
 
-    public override void OnClicked()
+    public override void OnClicked(InteractHand interactHand)
     {
         StartCoroutine(RoofRotator(true));
-        base.OnClicked();
+        base.OnClicked(interactHand);
     }
     private void OnCloseFartuk()
     {

@@ -1,12 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using AosSdk.Core.Interfaces;
+using AosSdk.Core.Utils;
+using AosSdk.Core.Player;
+using AosSdk.Core.Player.Pointer;
+using UnityEngine;
 using UnityEngine.Events;
 
-
-
-public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHoverAble
+public class SwitchCameraObject : MonoBehaviour, IClickAble, IHoverAble, ICameraObject
 {
     public UnityAction<ICameraObject> SwitchCameraEvent;
     public UnityAction<string> GetNameOfObjectEvent;
@@ -31,7 +31,7 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         _camera.SetActive(false);
         _canvas.SetActive(false);
     }
-    public virtual void OnClicked()
+    public virtual void OnClicked(InteractHand interactHand)
     {
         if(_cameraSwitch.CanSwitch)
         {
@@ -54,14 +54,18 @@ public class SwitchCameraObject : MonoBehaviour, IClickAble, ICameraObject, IHov
         tempInvent.SetCurrentCanvas(_gameCanvasViev);
     }
 
-    public void OnHoverIn()
+    public void OnHoverIn(InteractHand interactHand)
     {
         _canIterractSign.SetActive(true);
         GetNameOfObjectEvent?.Invoke(_nameOfObject);
     }
-    public void OnHoverOut()
+    public void OnHoverOut(InteractHand interactHand)
     {
         _canIterractSign.SetActive(false);
         GetNameOfObjectEvent?.Invoke("");
     }
+    public bool IsHoverable { get; set; } = true;
+
+    public bool IsClickable { get; set; } = true;
 }
+
