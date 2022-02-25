@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchMode: 0
   socketPort: 8080
-  walkSpeed: 4
-  runSpeed: 8
+  walkSpeed: 6
+  runSpeed: 10
   jumpSpeed: 8
   gravity: 20
   mouseLookSpeed: 0.5

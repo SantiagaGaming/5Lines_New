@@ -10,7 +10,7 @@ namespace AosSdk.Core.Utils
         public Player.Player CurrentPlayer { get; set; }
         public List<AosObjectBase> AosObjects { get; private set; } = new List<AosObjectBase>();
 
-        private void Awake()
+        private void OnEnable()
         {
             Instance ??= this;
         }

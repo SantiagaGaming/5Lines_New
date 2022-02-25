@@ -25,7 +25,7 @@ namespace AosSdk.Core.Player
 
         private bool _canMove = true;
         
-        private void Awake()
+        private void Start()
         {
             if (Instance == null)
             {
